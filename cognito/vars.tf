@@ -9,3 +9,7 @@ variable "aws_region" {
 variable "account_id" {
   default = "605769209612"
 }
+
+variable "domain_name" {
+  default = "xtages.xyz"
+}

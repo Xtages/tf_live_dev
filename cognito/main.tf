@@ -13,5 +13,5 @@ module "cognito" {
   env                            = var.env
   region                         = var.aws_region
   account_id                     = var.account_id
-  domain_name                    = "xtages.xyz"
+  domain_name                    = var.domain_name
 }
