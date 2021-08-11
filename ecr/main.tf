@@ -48,3 +48,99 @@ resource "aws_ecr_repository_policy" "codebuild_pull_policy_cd" {
   repository = aws_ecr_repository.xtages_build_images_node_cd.name
   policy     = data.template_file.codebuild_pull_policy.rendered
 }
+
+
+resource "aws_ecr_repository" "xtages_build_env" {
+  name                 = "xtages-buildenv"
+  image_tag_mutability = "IMMUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+
+  tags = {
+    Terraform   = true
+    Environment = var.env
+  }
+}
+
+resource "aws_ecr_repository" "xtages_correto" {
+  name                 = "xtages-correto"
+  image_tag_mutability = "IMMUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+
+  tags = {
+    Terraform   = true
+    Environment = var.env
+  }
+}
+
+resource "aws_ecr_repository" "xtages_nginx" {
+  name                 = "xtages-nginx"
+  image_tag_mutability = "IMMUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+
+  tags = {
+    Terraform   = true
+    Environment = var.env
+  }
+}
+
+resource "aws_ecr_repository" "xtages_terraform" {
+  name                 = "xtages-terraform"
+  image_tag_mutability = "IMMUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+
+  tags = {
+    Terraform   = true
+    Environment = var.env
+  }
+}
+
+resource "aws_ecr_repository" "xtages_node" {
+  name                 = "node"
+  image_tag_mutability = "IMMUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  encryption_configuration {
+    encryption_type = "KMS"
+  }
+
+  tags = {
+    Terraform   = true
+    Environment = var.env
+  }
+}
+
+resource "aws_ecr_repository_policy" "codebuild_pull_policy_node" {
+  repository = aws_ecr_repository.xtages_node.name
+  policy     = data.template_file.codebuild_pull_policy.rendered
+}
