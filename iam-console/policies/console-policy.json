@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:*",
+        "codebuild:*",
+        "codestar-notifications:*",
+        "cognito-identity:*",
+        "cognito-idp:*",
+        "ecr:*",
+        "logs:*",
+        "rds:*",
+        "ssm:*",
+        "sqs:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:PassRole"
+      ],
+      "Resource": [
+        "*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": [
+            "codebuild.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+}
