@@ -10,28 +10,14 @@
         "cognito-identity:*",
         "cognito-idp:*",
         "ecr:*",
+        "ecs:DescribeServices",
+        "iam:PassRole",
         "logs:*",
         "rds:*",
-        "ssm:*",
-        "sqs:*"
+        "sqs:*",
+        "ssm:*"
       ],
       "Resource": "*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": [
-        "iam:PassRole"
-      ],
-      "Resource": [
-        "*"
-      ],
-      "Condition": {
-        "StringEquals": {
-          "iam:PassedToService": [
-            "codebuild.amazonaws.com"
-          ]
-        }
-      }
     }
   ]
 }
