@@ -8,7 +8,7 @@ data "terraform_remote_state" "xtages_dev_infra" {
 }
 
 module "cognito" {
-  source                         = "git::https://github.com/Xtages/tf_cognito.git?ref=v0.1.3"
+  source                         = "git::https://github.com/Xtages/tf_cognito.git?ref=v0.1.4"
   no_reply_at_xtages_dot_com_arn = data.terraform_remote_state.xtages_dev_infra.outputs.domain_identity_arn
   env                            = var.env
   region                         = var.aws_region
